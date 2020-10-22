@@ -1,0 +1,100 @@
+<mat-card>
+  <mat-card-header color="accent">
+    <mat-card-title>User Profile</mat-card-title>
+    <mat-card-subtitle>We need to know more about you and your children</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-4">
+          <mat-form-field>
+            <mat-label>First name</mat-label>
+            <input matInput type="text" formControlName="firstName" required>
+          </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <mat-form-field>
+            <mat-label>Last name</mat-label>
+            <input matInput type="text" formControlName="lastName" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-4">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" required readonly>
+          </mat-form-field>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <mat-form-field>
+            <mat-label>Additional email</mat-label>
+            <input matInput type="text" formControlName="additionalEmail">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-4">
+          <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput type="tel" formControlName="phone">
+          </mat-form-field>
+        </div>
+      </div>
+      <hr>
+      <div *ngIf="players.controls.length==0">
+        <button mat-stroked-button color="primary" (click)="addPlayer()">Add Child</button>
+      </div>
+
+      <div formArrayName="players" *ngFor="let player of players.controls; let i=index">
+        <h4>Child {{i+1}}</h4>
+        <div class="row mb-2 px-3" [formGroupName]="i">
+          <div class="col-12 col-md-6 col-lg-4">
+            <mat-form-field>
+              <mat-label>First name</mat-label>
+              <input matInput type="text" formControlName="firstName" required>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <mat-form-field>
+              <mat-label>Last name</mat-label>
+              <input matInput type="text" formControlName="lastName" required>
+            </mat-form-field>
+          </div>
+          <div class="col-9 col-md-4 col-lg-3">
+            <mat-form-field>
+              <mat-label>Date of birth</mat-label>
+              <input matInput type="date" formControlName="dob" required>
+            </mat-form-field>
+
+          </div>
+          <div class="col-3 col-md-2 col-lg-1">
+            <button mat-fab color="primary" type="button" (click)="openDialog(i)" aria-label="Delete child">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <!--
+           -->
+
+          <!-- {{player.value |json}} -->
+
+        </div>
+      </div>
+      <div class="row mx-3 float-right" *ngIf="players.controls.length > 0">
+        <button class="float-right" mat-stroked-button color="primary" (click)="addPlayer()">Add another child</button>
+      </div>
+
+
+
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="start">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSubmit()">Save</button>
+    <button mat-stroked-button (click)="onCancel()">Cancel</button>
+    <!-- {{form.value | json}}
+<br> is form invalid = {{form.invalid}} -->
+  </mat-card-actions>
+  <mat-card-footer>
+
+  </mat-card-footer>
+</mat-card>
