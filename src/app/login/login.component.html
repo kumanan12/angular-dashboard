@@ -1,7 +1,31 @@
-<div class="text-center social-btn py-50" style="width:200px;margin:auto;">
-  <a href="/.auth/login/facebook?post_login_redirect_uri=/?lcb=1" class="btn btn-large btn-primary btn-block"><i
-      class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
+<div class="cotainer">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Login</div>
+                <div class="card-body">
+                        <div class="form-group row">
+                            <label for="userName" class="col-md-4 col-form-label text-md-right">Username</label>
+                            <div class="col-md-6">
+                                <input type="text" id="userName" class="form-control" name="userName" required autofocus>
+                            </div>
+                        </div>
 
-  <a href="/.auth/login/google?post_login_redirect_uri=/?lcb=1" class="btn btn-large btn-danger btn-block"><i
-      class="fa fa-google"></i> Sign in with <b>Google</b></a>
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                            <div class="col-md-6">
+                                <input type="password" id="password" class="form-control" name="password" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>
 </div>
