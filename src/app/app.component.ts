@@ -36,17 +36,17 @@ export class AppComponent implements OnInit {
       });
 
     if (!environment.production) {
-      const authenticatedUser = new AuthenticatedUser();
-      authenticatedUser.identityProvider = 'google';
-      authenticatedUser.userId = '495e923d862c4d189dab1ee8e296fcc3';
-      authenticatedUser.userDetails = 'kumanan12@gmail.com';
-      authenticatedUser.userRoles = [
-        'anonymous',
-        'authenticated'
-      ];
-      this.userId = '495e923d862c4d189dab1ee8e296fcc3';
-      this.userService.authenticatedUser.next(authenticatedUser);
-      this.checkUserProfile();
+      // const authenticatedUser = new AuthenticatedUser();
+      // authenticatedUser.identityProvider = 'google';
+      // authenticatedUser.userId = '495e923d862c4d189dab1ee8e296fcc3';
+      // authenticatedUser.userDetails = 'kumanan12@gmail.com';
+      // authenticatedUser.userRoles = [
+      //   'anonymous',
+      //   'authenticated'
+      // ];
+      // this.userId = '495e923d862c4d189dab1ee8e296fcc3';
+      // this.userService.authenticatedUser.next(authenticatedUser);
+      // this.checkUserProfile();
     }
 
   }
