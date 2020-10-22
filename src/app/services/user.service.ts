@@ -41,5 +41,15 @@ export class UserService {
   delete(userId: string): void {
 
   }
+
+  login(userName: string, password: string): void {
+    const userObj = new AuthenticatedUser();
+    userObj.userId = userName;
+    this.authenticatedUser.next(userObj);
+  }
+
+  logout(): void {
+    this.user.next(null);
+  }
 }
 
